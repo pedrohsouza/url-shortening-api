@@ -119,5 +119,6 @@ function createElement(
 
 function copyToClipboard(parentNode) {
   const copyText = document.querySelector(`${parentNode} a`).innerText
+  
   navigator.clipboard.writeText(copyText)
 }
