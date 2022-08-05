@@ -1,3 +1,31 @@
+async function copyToClipboard(parentNode) {
+  // const copyText = document.querySelector(`${parentNode} a`).innerText
+  // // navigator.clipboard.writeText(copyText)
+
+  // ;async () => {
+  //   const text = await navigator.clipboard.writeText(copyText)
+  //   console.log(text)
+  // }
+
+  var copyText = document.querySelector(`${parentNode} a`)
+
+  var range = document.createRange()
+  range.selectNode(copyText)
+  window.getSelection().addRange(range)
+  // document.execCommand('copy')
+
+  try {
+    document.execCommand('copy')
+  } catch (err) {
+    ChromeSamples.log('execCommand Error', err)
+  }
+
+  window.getSelection().removeAllRanges()
+
+  // window.clipboardData.setData('Text', copyText)
+  // console.log(copyText)
+}
+
 // open-close menu when the toggle icon is clicked
 const menu = document.querySelector('.menu')
 const toggle = document.querySelector('nav .toggle')
@@ -23,21 +51,27 @@ const btn = document.querySelector('#send')
 btn.addEventListener('click', function (e) {
   e.preventDefault()
 
-  const urlInput = document.querySelector('#name').value
-  // console.log(urlInput)
+  const urlInput = document.querySelector('#text_input').value
 
-  const api_url = 'https://api.shrtco.de/v2/shorten?'
+  if (urlInput === '') {
+    console.log('Please add a link')
+  } else {
+    document.querySelector('#text_input').value = ''
+    // console.log(urlInput)
 
-  const url = api_url + 'url=' + urlInput
+    const api_url = 'https://api.shrtco.de/v2/shorten?'
 
-  connectToApi(url)
-    .then(response => {
-      console.log('yay')
-    })
-    .catch(error => {
-      console.log('error!')
-      console.log(error)
-    })
+    const url = api_url + 'url=' + urlInput
+
+    connectToApi(url)
+      .then(response => {
+        console.log('yay')
+      })
+      .catch(error => {
+        console.log('error!')
+        console.log(error)
+      })
+  }
 })
 
 let idNumber = 0
@@ -93,37 +127,20 @@ function createElement(
     // element.setAttribute('onClick', 'copyToClipboard()')
 
     element.addEventListener('click', function () {
-      element.classList.toggle('clipboard-button-clicked')
-
-      if (element.innerText === 'Copy') {
-        element.innerText = 'Copied!'
-      } else {
-        element.innerText = 'Copy'
-      }
-
+      // element.classList.toggle('clipboard-button-clicked')
+      element.classList.add('clipboard-button-clicked')
+      element.innerText = 'Copied!'
       copyToClipboard(parentNode)
+      setTimeout(async () => {
+        await element.classList.remove('clipboard-button-clicked')
+        element.innerText = 'Copy'
+      }, 1500)
     })
   }
 
-  document.querySelector(parentNode).appendChild(element)
-}
-
-function copyToClipboard(parentNode) {
-  // const copyText = document.querySelector(`${parentNode} a`).innerText
-  // navigator.clipboard.writeText(copyText)
-  var copyText = document.querySelector(`${parentNode} a`)
-
-  var range = document.createRange()
-  range.selectNode(copyText)
-  window.getSelection().addRange(range)
-
-  try {
-    document.execCommand('copy')
-  } catch (err) {
-    ChromeSamples.log('execCommand Error', err)
+  if (elementType === 'div' && className === 'url-info-card') {
+    document.querySelector(parentNode).prepend(element)
+  } else {
+    document.querySelector(parentNode).appendChild(element)
   }
-  window.getSelection().removeAllRanges()
-
-  // window.clipboardData.setData('Text', copyText)
-  // console.log(copyText)
 }
