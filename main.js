@@ -17,23 +17,34 @@ for (const link of links) {
   })
 }
 
+// Hide the error message when the text input is focused
+const textInput = document.querySelector('#text_input')
+const errorMessage = document.querySelector('.form span')
+
+textInput.addEventListener('focus', () => {
+  textInput.classList.remove('text-input-error')
+  errorMessage.style.display = 'none'
+})
+
 // Capture the url in the form
 const btn = document.querySelector('#send')
 
 btn.addEventListener('click', function (e) {
   e.preventDefault()
-
-  const urlInput = document.querySelector('#text_input').value
+  const urlInput = textInput.value
 
   if (urlInput === '') {
+    textInput.classList.add('text-input-error')
+    errorMessage.innerText = 'Please add a link'
+    errorMessage.style.display = 'block'
     console.log('Please add a link')
   } else {
     document.querySelector('#text_input').value = ''
     // console.log(urlInput)
 
-    const api_url = 'https://api.shrtco.de/v2/shorten?'
+    const api_url = 'https://api.shrtco.de/v2/shorten?url='
 
-    const url = api_url + 'url=' + urlInput
+    const url = api_url + urlInput
 
     connectToApi(url)
       .then(response => {
@@ -51,22 +62,31 @@ let idNumber = 0
 async function connectToApi(url) {
   const response = await fetch(url)
   const data = await response.json()
-  const { code, full_short_link, original_link } = data.result
 
-  console.log(full_short_link)
-  console.log(original_link)
+  if (data.ok === true) {
+    const { code, full_short_link, original_link } = data.result
 
-  console.log(data)
+    console.log(full_short_link)
+    console.log(original_link)
 
-  let id = `div-${idNumber}-${code}`
+    console.log(data)
 
-  createElement('div', '', 'url-info-card', id, '.url-short')
-  createElement('p', original_link, '', '', `#${id}`)
-  createElement('div', '', 'div', '', `#${id}`)
-  createElement('a', full_short_link, '', '', `#${id}`)
-  createElement('button', 'Copy', 'button', '', `#${id}`)
+    let id = `div-${idNumber}-${code}`
 
-  idNumber++
+    createElement('div', '', 'url-info-card', id, '.url-short')
+    createElement('p', original_link, '', '', `#${id}`)
+    createElement('div', '', 'div', '', `#${id}`)
+    createElement('a', full_short_link, '', '', `#${id}`)
+    createElement('button', 'Copy', 'button', '', `#${id}`)
+
+    idNumber++
+  } else {
+    const { error } = data
+
+    textInput.classList.add('text-input-error')
+    errorMessage.innerText = error
+    errorMessage.style.display = 'block'
+  }
 }
 
 function createElement(
@@ -106,7 +126,7 @@ function createElement(
       setTimeout(async () => {
         await element.classList.remove('clipboard-button-clicked')
         element.innerText = 'Copy'
-      }, 1500)
+      }, 900)
     })
   }
 
@@ -119,6 +139,5 @@ function createElement(
 
 function copyToClipboard(parentNode) {
   const copyText = document.querySelector(`${parentNode} a`).innerText
-  
   navigator.clipboard.writeText(copyText)
 }
