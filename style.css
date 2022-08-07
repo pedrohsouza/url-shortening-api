@@ -60,6 +60,8 @@ header {
 nav.container {
   display: flex;
   justify-content: space-between;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
 .logo {
@@ -165,6 +167,11 @@ nav.container {
   padding: 10rem 0 15rem;
 }
 
+.home .container {
+  max-width: 132rem;
+  margin: 0 auto;
+}
+
 #bg {
   width: 100%;
   height: 32rem;
@@ -172,7 +179,6 @@ nav.container {
 
   background: url(./images/illustration-working.svg);
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
   background-position-x: 2rem;
 }
@@ -257,7 +263,8 @@ form {
 
   padding: 2rem 2rem;
 
-  width: 90%;
+  width: calc(100% - 2 * var(--padding-header));
+  max-width: 120rem;
   min-height: 15rem;
   max-height: fit-content;
 
@@ -291,6 +298,10 @@ form {
 
   /* width: 88%; */
   height: 4rem;
+}
+
+.text_input:focus {
+  outline: 0.2rem solid var(--cyan);
 }
 
 .text_input::placeholder {
@@ -341,7 +352,8 @@ form {
 
   padding: 0 0 2rem;
 
-  width: 90%;
+  width: calc(100% - 2 * var(--padding-header));
+  max-width: 120rem;
   min-height: auto;
 
   border-radius: 1rem;
@@ -404,6 +416,7 @@ form {
 
 .features .content {
   padding: 0 var(--padding-header) 8rem;
+  max-width: 144rem;
 }
 
 .divider {
@@ -492,10 +505,15 @@ form {
 footer {
   background-color: var(--very-dark-violet);
   color: white;
+  position: relative;
+}
 
+.footer-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
 .logo-white {
@@ -550,6 +568,8 @@ footer {
 .social {
   height: 13rem;
   width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
 
   padding: 0 6rem;
 
@@ -594,9 +614,14 @@ footer {
   font-size: 1.2rem;
   text-align: center;
   color: white;
-  background-color: var(--very-dark-violet);
 
-  padding: 0 4rem 2rem;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 1rem;
+  /* display: none; */
 }
 
 .attribution a {
@@ -698,9 +723,9 @@ footer {
 
     padding: 0 5rem;
 
-    width: auto;
+    /* width: auto;
     margin-left: var(--padding-header);
-    margin-right: var(--padding-header);
+    margin-right: var(--padding-header); */
 
     background: url(./images/bg-boost-desktop.svg);
     background-color: var(--dark-violet);
@@ -731,11 +756,11 @@ footer {
     flex-direction: row;
     justify-content: space-between;
 
-    margin: 2rem var(--padding-header) 0;
+    /* margin: 2rem var(--padding-header) 0; */
 
     padding: 1.5rem 2rem;
 
-    width: auto;
+    /* width: auto; */
   }
 
   .url-info-card p,
@@ -799,10 +824,9 @@ footer {
   }
 
   #bg {
-    width: 100%;
-    height: 45rem;
+    height: 48rem;
 
-    background-size: cover;
+    background-size: auto;
     background-position-x: 5rem;
   }
 
@@ -831,9 +855,6 @@ footer {
   /* =========== FEATURES ============== */
   .features .content {
     display: flex;
-
-    /* height: 40rem; */
-    max-width: 168.3rem;
     margin: 0 auto;
   }
 
@@ -900,8 +921,10 @@ footer {
   /* =========== FOOTER ============== */
   footer {
     padding: 5rem var(--padding-header);
+  }
+
+  .footer-container {
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: flex-start;
   }
 
@@ -946,35 +969,6 @@ footer {
     justify-content: flex-end;
     align-items: flex-start;
     column-gap: 2rem;
-  }
-}
-
-@media (min-width: 1023px) {
-  :root {
-    --padding-header: 15rem;
-  }
-
-  /* =========== HEADER ============== */
-  header {
-    padding: 3rem var(--padding-header) 1rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  :root {
-    --padding-header: 15rem;
-  }
-
-  /* =========== HEADER ============== */
-  header {
-    padding: 3rem var(--padding-header) 1rem;
-  }
-
-  /* =========== HOME ============== */
-  #bg {
-    height: 50rem;
-    background-size: contain;
-    background-position-x: 5rem;
   }
 }
 

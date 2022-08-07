@@ -1,202 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- STYLE -->
-  <link rel="stylesheet" href="./style.css" />
+    <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
 
-  <!-- FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header id="header">
-    <nav class="container">
-      <div class="logo"><a href="#"></a></div>
-      
-      <div class="toggle"></div>
-      <!-- <div class="toggle icon-close">X</div> -->
-      
-      <!-- /menu -->
-      <div class="menu">
-        <ul class="flex">
-          <li><a class="title" href="#features">Features</a></li>
-          <li><a class="title" href="#">Pricing</a></li>
-          <li><a class="title" href="#">Resources</a></li>
+    <!-- STYLE -->
+    <link rel="stylesheet" href="./style.css" />
 
-          <div class="access">
-            <li><a class="title" href="#">Login</a></li>
-            <li><a class="title button" href="#">Sign Up</a></li>
-          </div>
-        </ul>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <div class="logo"><a href="#"></a></div>
+
+        <div class="toggle"></div>
+        <!-- <div class="toggle icon-close">X</div> -->
+
+        <!-- /menu -->
+        <div class="menu">
+          <ul class="flex">
+            <li><a class="title" href="#features">Features</a></li>
+            <li><a class="title" href="#">Pricing</a></li>
+            <li><a class="title" href="#">Resources</a></li>
+
+            <div class="access">
+              <li><a class="title" href="#">Login</a></li>
+              <li><a class="title button" href="#">Sign Up</a></li>
+            </div>
+          </ul>
+        </div>
+        <!-- /menu -->
+      </nav>
+    </header>
+
+    <main id="home" class="home">
+      <div class="container">
+        <div class="image" id="bg"></div>
+        <div class="text">
+          <h1 class="title">More than just shorter links</h1>
+          <p>
+            Build your brand’s recognition and get detailed insights on how your
+            links are performing.
+          </p>
+          <a class="button" href=""> Get Started </a>
+        </div>
       </div>
-      <!-- /menu -->
-    </nav>
-  </header>
-  
-  <main id="home" class="home">
-    <div class="container">
-      <div class="image" id="bg"></div>
-      <div class="text">
-        <h1 class="title">
-          More than just shorter links
-        </h1>
-        <p>
-          Build your brand’s recognition and get detailed insights 
-          on how your links are performing.
-        </p>
-        <a class="button" href="">
-          Get Started
-        </a>
-      </div>
-    </div>
-  </main>
+    </main>
 
-  <section id="features" class="features">
-    <div class="url-short">
-      <form class="form" action="">
-        <input
-          type="url"
-          id="text_input"
-          class="text_input"
-          placeholder="Shorten a link here..."
-          required
-        />
-        <span class="error-message"></span>
-        <input
-          type="submit"
-          id="send"
-          class="btn_submit button"
-          alt="Submit"
-          value="Shorten It!"
-        />
-      </form>
+    <section id="features" class="features">
+      <div class="url-short">
+        <form class="form" action="">
+          <input
+            type="url"
+            id="text_input"
+            class="text_input"
+            placeholder="Shorten a link here..."
+            required
+          />
+          <span class="error-message"></span>
+          <input
+            type="submit"
+            id="send"
+            class="btn_submit button"
+            alt="Submit"
+            value="Shorten It!"
+          />
+        </form>
 
-      <!-- <div class="url-info-card">
+        <!-- <div class="url-info-card">
         <p>https://www.frontendmentor.io</p>
         <div class="div"></div>
         <a href="">http://127.0.0.1</a>
         <button class="button">Copy</button>
       </div> -->
-    </div>
+      </div>
 
-    <div class="text headline">
-      <h2 class="title">
-        Advanced Statistics
-      </h2>
-      <p>
-        Track how your links are performing across the web with our 
-        advanced statistics dashboard.
-      </p>
-    </div>
- 
-    <div class="content">
-      <div class="feature brand-recognition">
-        <div class="icon icon-brand-recognition"></div>
-        <div class="text">
-          <h3 class="title">Brand Recognition</h3>
-          <p>
-            Boost your brand recognition with each click. Generic links don’t 
-            mean a thing. Branded links help instil confidence in your content.
-          </p>
+      <div class="text headline">
+        <h2 class="title">Advanced Statistics</h2>
+        <p>
+          Track how your links are performing across the web with our advanced
+          statistics dashboard.
+        </p>
+      </div>
+
+      <div class="content">
+        <div class="feature brand-recognition">
+          <div class="icon icon-brand-recognition"></div>
+          <div class="text">
+            <h3 class="title">Brand Recognition</h3>
+            <p>
+              Boost your brand recognition with each click. Generic links don’t
+              mean a thing. Branded links help instil confidence in your
+              content.
+            </p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="feature detailed-records">
+          <div class="icon icon-detailed-records"></div>
+          <div class="text">
+            <h3 class="title">Detailed Records</h3>
+            <p>
+              Gain insights into who is clicking your links. Knowing when and
+              where people engage with your content helps inform better
+              decisions.
+            </p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="feature fully-customizable">
+          <div class="icon icon-fully-customizable"></div>
+          <div class="text">
+            <h3 class="title">Fully Customizable</h3>
+            <p>
+              Improve brand awareness and content discoverability through
+              customizable links, supercharging audience engagement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="get_started">
+      <h2>Boost your links today</h2>
+
+      <a class="button" href=""> Get Started </a>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="logo-white"><a href="#"></a></div>
+
+        <div class="links">
+          <div>
+            <h2>Features</h2>
+            <ul>
+              <li><a href="">Link Shortening</a></li>
+              <li><a href="">Branded Links</a></li>
+              <li><a href="">Analytics</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h2>Resources</h2>
+            <ul>
+              <li><a href="">Blog</a></li>
+              <li><a href="">Developers</a></li>
+              <li><a href="">Support</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h2>Company</h2>
+            <ul>
+              <li><a href="">About</a></li>
+              <li><a href="">Our Team</a></li>
+              <li><a href="">Careers</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="social">
+          <a href="https://www.facebook.com/" target="_blank"
+            ><div class="facebook icon-social"></div
+          ></a>
+          <a href="https://www.twitter.com/" target="_blank"
+            ><div class="twitter icon-social"></div
+          ></a>
+          <a href="https://www.pinterest.com/" target="_blank"
+            ><div class="pinterest icon-social"></div
+          ></a>
+          <a href="https://www.instagram.com/" target="_blank"
+            ><div class="instagram icon-social"></div
+          ></a>
         </div>
       </div>
 
-      <div class="divider"></div>
-
-      <div class="feature detailed-records">
-        <div class="icon icon-detailed-records"></div>
-        <div class="text">
-          <h3 class="title">Detailed Records</h3>
-          <p>
-            Gain insights into who is clicking your links. Knowing when and where 
-            people engage with your content helps inform better decisions.
-          </p>
-        </div>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/pedrohsouza" target="_blank">Pedro Souza</a
+        >.
       </div>
+    </footer>
 
-      <div class="divider"></div>
-
-      <div class="feature fully-customizable">
-        <div class="icon icon-fully-customizable"></div>
-        <div class="text">
-          <h3 class="title">Fully Customizable</h3>
-          <p>
-            Improve brand awareness and content discoverability through customizable 
-            links, supercharging audience engagement.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="get_started">
-    <h2>
-      Boost your links today
-    </h2>
-    
-    <a class="button" href="">
-      Get Started
-    </a>
-    
-  </section>
-
-  <footer>
-    <div class="logo-white"><a href="#"></a></div>
-    
-    <div class="links">
-      <div>
-        <h2>Features</h2>
-        <ul>
-          <li><a href="">Link Shortening</a></li>
-          <li><a href="">Branded Links</a></li>
-          <li><a href="">Analytics</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2>Resources</h2>
-        <ul>
-          <li><a href="">Blog</a></li>
-          <li><a href="">Developers</a></li>
-          <li><a href="">Support</a></li>
-        </ul>
-      </div>
-      
-      <div>
-        <h2>Company</h2>
-        <ul>
-          <li><a href="">About</a></li>
-          <li><a href="">Our Team</a></li>
-          <li><a href="">Careers</a></li>
-          <li><a href="">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="social">
-        <a href="https://www.facebook.com/" target="_blank"><div class="facebook icon-social"></div></a>
-        <a href="https://www.twitter.com/" target="_blank"><div class="twitter icon-social"></div></a>
-        <a href="https://www.pinterest.com/" target="_blank"><div class="pinterest icon-social"></div></a>
-        <a href="https://www.instagram.com/" target="_blank"><div class="instagram icon-social"></div></a>
-    </div>
-    
-  </footer>
-
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/pedrohsouza" target="_blank">Pedro Souza</a>.
-  </div>
-
-  <script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
