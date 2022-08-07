@@ -46,40 +46,28 @@ btn.addEventListener('click', function (e) {
 
     const url = api_url + urlInput
 
-    connectToApi(url)
-      .then(response => {
-        console.log('yay')
-      })
-      .catch(error => {
-        console.log('error!')
-        console.log(error)
-      })
+    // connectToApi(url)
+    //   .then(response => {
+    //     console.log('yay')
+    //   })
+    //   .catch(error => {
+    //     console.log('error!')
+    //     console.log(error)
+    //   })
+
+    connectToApi(url).then(data => {
+      storeData(data)
+      createCard(data)
+    })
   }
 })
-
-let idNumber = 0
 
 async function connectToApi(url) {
   const response = await fetch(url)
   const data = await response.json()
 
-  if (data.ok === true) {
-    const { code, full_short_link, original_link } = data.result
-
-    console.log(full_short_link)
-    console.log(original_link)
-
-    console.log(data)
-
-    let id = `div-${idNumber}-${code}`
-
-    createElement('div', '', 'url-info-card', id, '.url-short')
-    createElement('p', original_link, '', '', `#${id}`)
-    createElement('div', '', 'div', '', `#${id}`)
-    createElement('a', full_short_link, '', '', `#${id}`)
-    createElement('button', 'Copy', 'button', '', `#${id}`)
-
-    idNumber++
+  if (data.ok) {
+    return data
   } else {
     const { error } = data
 
@@ -87,6 +75,55 @@ async function connectToApi(url) {
     errorMessage.innerText = error
     errorMessage.style.display = 'block'
   }
+}
+
+function storeData(data) {
+  // const { code } = data.result
+
+  const dateTime = getDateTime()
+
+  // let id = `card-${dateTime}-${code}`
+  let id = `card-${dateTime}`
+
+  const stringfiedData = JSON.stringify(data)
+  window.localStorage.setItem(id, stringfiedData)
+}
+
+function getData(id) {
+  let stringfiedData = window.localStorage.getItem(id)
+  let data = JSON.parse(stringfiedData)
+  return data
+}
+
+window.onload = () => {
+  if (window.localStorage.length > 0) {
+    const sortedArray = sortLocalStorage()
+    loadFromStorage(sortedArray)
+  }
+}
+
+function loadFromStorage(sortedArray) {
+  // const storage = window.localStorage
+  let data
+  // for (let id in storage) {
+  //   data = getData(id)
+  //   createCard(data)
+  // }
+  for (let i = 0; i < sortedArray.length; i++) {
+    data = getData(sortedArray[i])
+    createCard(data)
+  }
+}
+
+function sortLocalStorage() {
+  const storage = window.localStorage
+  const localStorageArray = []
+  for (let i = 0; i < storage.length; i++) {
+    localStorageArray[i] = storage.key(i)
+  }
+  const sortedArray = localStorageArray.sort()
+  console.log(sortedArray)
+  return sortedArray
 }
 
 function createElement(
@@ -130,6 +167,8 @@ function createElement(
     })
   }
 
+  // document.querySelector(parentNode).appendChild(element)
+
   if (elementType === 'div' && className === 'url-info-card') {
     document.querySelector(parentNode).prepend(element)
   } else {
@@ -137,7 +176,34 @@ function createElement(
   }
 }
 
-function copyToClipboard(parentNode) {
-  const copyText = document.querySelector(`${parentNode} a`).innerText
+function createCard(data) {
+  // let { code, full_short_link, original_link } = data.result
+  let { full_short_link, original_link } = data.result
+  const dateTime = getDateTime()
+
+  // let id = `card-${dateTime}-${code}`
+  let id = `card-${dateTime}`
+
+  createElement('div', '', 'url-info-card', id, '.url-short')
+  createElement('p', original_link, '', '', `#${id}`)
+  createElement('div', '', 'div', '', `#${id}`)
+  createElement('a', full_short_link, '', '', `#${id}`)
+  createElement('button', 'Copy', 'button', '', `#${id}`)
+}
+
+function copyToClipboard(cardId) {
+  const copyText = document.querySelector(`${cardId} a`).innerText
   navigator.clipboard.writeText(copyText)
+}
+
+function getDateTime() {
+  let today = new Date()
+  let date =
+    today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+  let time =
+    today.getHours() + '-' + today.getMinutes() + '-' + today.getSeconds()
+
+  let dateTime = date + '-' + time
+
+  return dateTime
 }

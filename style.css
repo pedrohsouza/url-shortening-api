@@ -386,7 +386,6 @@ form {
 
 .url-info-card a {
   color: var(--cyan);
-  /* margin-bottom: 1rem; */
 }
 
 .url-info-card .button {
@@ -506,6 +505,7 @@ footer {
   background-color: var(--very-dark-violet);
   color: white;
   position: relative;
+  padding-bottom: 2rem;
 }
 
 .footer-container {
@@ -616,17 +616,24 @@ footer {
   color: white;
   padding: 0 5rem;
 
-  margin: 0 auto;
-  position: absolute;
+  margin: 2rem auto 0;
+  /* position: absolute;
   z-index: 1;
   left: 0;
   right: 0;
-  bottom: 1rem;
+  bottom: 1rem; */
 }
 
 .attribution a {
   color: white;
   text-decoration: underline;
+}
+
+@media (max-width: 300px) {
+  .url-info-card a {
+    height: auto;
+    word-break: break-word;
+  }
 }
 
 @media (min-width: 490px) {
@@ -779,6 +786,7 @@ footer {
 
   .url-info-card a {
     width: fit-content;
+    margin-left: 2rem;
   }
 
   .url-info-card .button {
@@ -920,7 +928,7 @@ footer {
 
   /* =========== FOOTER ============== */
   footer {
-    padding: 5rem var(--padding-header);
+    padding: 5rem var(--padding-header) 2rem;
   }
 
   .footer-container {
