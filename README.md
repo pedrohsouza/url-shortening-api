@@ -81,7 +81,7 @@ On future projects I'd like to use a CSS preprocessor like SASS to help me style
 
 ## Author
 
-- Gitihub - [@pedrohsouza](https://github.com/pedrohsouza)
+- Github - [@pedrohsouza](https://github.com/pedrohsouza)
 - Frontend Mentor - [@pedrohsouza](https://www.frontendmentor.io/profile/pedrohsouza)
 
 
