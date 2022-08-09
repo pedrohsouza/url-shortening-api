@@ -19,7 +19,7 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 
 ### Screenshots
 
-![Screenshots](./screenshots/screenshots-all-sizes.png)
+![](./screenshots/screenshots-all-sizes.png)
 
 ### The challenge
 
