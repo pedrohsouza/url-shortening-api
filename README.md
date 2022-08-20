@@ -76,7 +76,7 @@ On future projects I'd like to use a CSS preprocessor like SASS to help me style
 
 - [Clipboard (Copy & Paste)](https://whatwebcando.today/clipboard.html) - This article helped me with the use of the clipboard API.
 - [localStorage in JavaScript: A complete guide](https://blog.logrocket.com/localstorage-javascript-complete-guide/#:~:text=localStorage%20in%20JavaScript.-,What%20is%20localStorage%20in%20JavaScript%3F,the%20browser%20window%20is%20closed.) - This is an amazing article which helped me to understand how to use the localStorage.
-- [TecAdmin](https://tecadmin.net/get-current-date-time-javascript/) - I needed a way to differentiate beetween keys as I stored data in the localStorage, so a way I found to do this was by naming them with the current time. This article helped me to understand how to get that information with native javascript methods.
+- [How to Get Current Date & Time in JavaScript](https://tecadmin.net/get-current-date-time-javascript/) - I needed a way to differentiate beetween keys as I stored data in the localStorage, so a way I found to do this was by naming them with the current time. This article helped me to understand how to get that information with native javascript methods.
 
 
 ## Author
