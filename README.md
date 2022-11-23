@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-url-shortening-page-with-vanilla-html-css-and-javascript-CYEzXmycyx)
-- Live Site URL: [Github Pages](https://pedrohsouza.github.io/url-shortening-api-master/)
+- Live Site URL: [Github Pages](https://pedrohsouza.github.io/url-shortening-api/)
 
 ## My process
 
@@ -49,7 +49,7 @@ Users should be able to:
 
 ### What I learned
 
-This is my third submission to Frontend Mentor and I've could learn a lot with it, some of the developed abilities are as it follows:
+This is my third submission to Frontend Mentor and I've could learn a lot with it, some of the developed abilities are as follows:
 
 - Using the fetch API to retrieve data from a public API.
 - Rendering data retrieved from a API dinamically on the page using the DOM API.
@@ -67,7 +67,7 @@ Some of the challenges I faced:
 
 ### Continued development
 
-For now I'll call it a day (it has been two weeks on it with this challenge) but for future updates I'd like to add an option to clean the links once you don't need them anymore.
+For now I'll call it a day (it has been two weeks on this challenge) but for future updates I'd like to add an option to clean the links once you don't need them anymore.
 
 On future projects I'd like to use a CSS preprocessor like SASS to help me style the page more easily and maybe a library like React to render the page dinamically.
 
